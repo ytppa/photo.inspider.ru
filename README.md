@@ -1,1 +1,1 @@
-https://conf.inspider.ru
+https://photo.inspider.ru

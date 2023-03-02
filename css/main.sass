@@ -133,16 +133,30 @@ h2
     .b-hero--left
         padding-bottom: 14vw
 
-.b-masked
-    mask-size: 100% auto
-    mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='3272' viewBox='0 0 1920 3272' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 98.8015V3271.5H1920V95.8015C1920 95.8015 1446.3 298.001 957 97.3015C421 -122.499 0 98.8015 0 98.8015Z' fill='%2349F4FF'/%3E%3C/svg%3E%0A")
-    mask-repeat: no-repeat
-    mask-position: top center
+@media screen and (min-width: 769px)
+    .b-masked-d
+        mask-size: 100% auto
+        mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='3272' viewBox='0 0 1920 3272' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 98.8015V3271.5H1920V95.8015C1920 95.8015 1446.3 298.001 957 97.3015C421 -122.499 0 98.8015 0 98.8015Z' fill='%2349F4FF'/%3E%3C/svg%3E%0A")
+        mask-repeat: no-repeat
+        mask-position: top center
 
-    -webkit-mask-size: 100% auto
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='3272' viewBox='0 0 1920 3272' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 98.8015V3271.5H1920V95.8015C1920 95.8015 1446.3 298.001 957 97.3015C421 -122.499 0 98.8015 0 98.8015Z' fill='%2349F4FF'/%3E%3C/svg%3E%0A")
-    -webkit-mask-repeat: no-repeat
-    -webkit-mask-position: top center
+        -webkit-mask-size: 100% auto
+        -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='3272' viewBox='0 0 1920 3272' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 98.8015V3271.5H1920V95.8015C1920 95.8015 1446.3 298.001 957 97.3015C421 -122.499 0 98.8015 0 98.8015Z' fill='%2349F4FF'/%3E%3C/svg%3E%0A")
+        -webkit-mask-repeat: no-repeat
+        -webkit-mask-position: top center
+
+@media screen and (max-width: 768px)
+    .b-masked-m
+        mask-size: 140% auto
+        mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='3272' viewBox='0 0 1920 3272' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 98.8015V3271.5H1920V95.8015C1920 95.8015 1446.3 298.001 957 97.3015C421 -122.499 0 98.8015 0 98.8015Z' fill='%2349F4FF'/%3E%3C/svg%3E%0A")
+        mask-repeat: no-repeat
+        mask-position: top right
+
+        -webkit-mask-size: 140% auto
+        -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='3272' viewBox='0 0 1920 3272' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 98.8015V3271.5H1920V95.8015C1920 95.8015 1446.3 298.001 957 97.3015C421 -122.499 0 98.8015 0 98.8015Z' fill='%2349F4FF'/%3E%3C/svg%3E%0A")
+        -webkit-mask-repeat: no-repeat
+        -webkit-mask-position: top right
+
 /* #endregion Section 1 */
 
 // =======================================================================
@@ -373,7 +387,7 @@ h2
         align-items: center
 
         img
-            max-width: 405px
+            max-width: min(60vw, 405px)
             width: 100%
             height: auto
 /* #endregion Section 4 */
@@ -472,11 +486,20 @@ h2
 // =======================================================================
 /* #region Mobile breakpoint */
 @media screen and (max-width: 768px)
-    html
+    html, body
         font-size: 16px
     
     *
         word-break: break-word
+
+    h2
+        font-size: 2rem
+
+    .b-button
+        padding: 1rem 2.7rem
+    
+    .b-tag
+        padding: .8rem 1rem
 
     .b-hero
         background-size: 100% auto
@@ -507,8 +530,76 @@ h2
                 transform: none
         .b-button 
             margin-top: 2rem   
+    
+    .b-gallery
+        margin-top: -14.5vw
+        background-color: transparent
+        -webkit-mask: none
+        mask: none
 
-    .b-cooking--image-left,
-    .b-cooking--image-right
-        display: none
+        .b-tags
+            justify-content: flex-start
+
+        &--wrapper
+            flex-direction: column
+            
+            & > *
+                flex: 1 1 auto 
+
+        &--left 
+            aspect-ratio: 5 / 4
+            background-color: var(--color-white-1000)
+            margin-left: calc(-1 * var(--pad))
+            margin-right: calc(-1 * var(--pad))
+            padding-left: var(--pad)
+            padding-right: var(--pad)
+            
+        &--right
+            padding-top: 3rem
+
+            .b-heading, 
+            .b-content, 
+            .b-tags
+                padding-left: 0
+
+    .ma-gallery
+        --gap: .5rem
+    
+    .b-bottom-curve,
+    .b-top-curve
+        width: 80%
+    
+    .b-cooking
+        &--content
+            width: 100%
+            padding: 3rem 0 6rem 0
+            margin-top: -10vw
+
+        &--image-left
+            display: none
+
+        &--image-right
+            position: relative
+            transform: translateY(-10vw)
+            top: auto
+            bottom: auto
+            left: auto
+    
+    .b-contest
+        &--content
+            flex-direction: column-reverse
+            padding: 3rem 0 6rem 0
+
+        &--right img 
+            max-width: min(405px, 60vw)
+
+        &--left 
+            margin-top: 2rem
+
+        .b-line
+            justify-content: center
+    
+    .b-subscription--content > * + *
+        max-width: 100%
+    
 /* #endregion Mobile breakpoint */
