@@ -35,6 +35,9 @@ a {
   text-decoration: underline;
   color: inherit;
 }
+a:hover {
+  text-decoration: none;
+}
 
 h2 {
   font-size: 3rem;
@@ -80,7 +83,7 @@ h2 {
 
 .author {
   font-size: 0.5rem;
-  color: var(--color-white-500);
+  color: hsla(0deg, 0%, 100%, 0.5);
 }
 
 /* #region Section 1 */
@@ -363,6 +366,11 @@ h2 {
   background-position: bottom left;
   transform: translateX(-100%);
 }
+.b-cooking .author {
+  position: absolute;
+  bottom: 1rem;
+  left: calc(50% - 720px);
+}
 .b-cooking--image-right {
   position: absolute;
   left: 50%;
@@ -501,10 +509,6 @@ h2 {
 }
 .b-subscription input:active, .b-subscription input:focus {
   background: rgba(255, 255, 255, 0.7);
-}
-.b-subscription a {
-  color: inherit;
-  text-decoration: underline;
 }
 
 /* #endregion Section 5 */ 
